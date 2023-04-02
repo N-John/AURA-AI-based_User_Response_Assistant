@@ -2,24 +2,71 @@ import random
 
 # Define a dictionary of keywords and their corresponding actions
 keyword_dict = {
-    "internet": "internet",
-    "speed": "speed",
-    "plan": "plan",
-    "pricing": "pricing",
-    "installation": "installation",
-    "service": "service",
-    "contact": "contact"
+    "greeting": ["hello", "hi", "hey", "good morning", "good afternoon", "good evening"],
+    "farewell": ["bye", "goodbye", "see you", "see ya"],
+    "plan": ["plan", "package", "service", "offer", "option"],
+    "internet": ["internet", "broadband", "connectivity"],
+    "speed": ["speed", "fast", "slow"],
+    "price": ["price", "cost", "bill", "charge", "fee"],
+    "location": ["location", "area", "address"],
+    "support": ["support", "help", "assistance"],
+    "outage": ["outage", "disruption", "downtime", "not working"],
+    "account": ["account", "login", "username", "password"],
+    "email": ["email", "mailbox", "inbox", "spam"],
+    "payment": ["payment", "pay", "credit card", "debit card", "bank transfer"],
+    "installation": ["installation", "setup", "activate", "register"],
+    "modem": ["modem", "router", "gateway", "access point"]
 }
 
 # Define a dictionary of responses for each type of question
 responses_dict = {
-    "internet": ["We provide high-speed internet services to our customers.", "Our internet services are reliable and fast.", "Our internet services are optimized for high bandwidth usage."],
-    "speed": ["Our internet speed varies depending on the plan you choose. What speed are you looking for?", "We offer different speed tiers to meet your needs.", "Our internet speed is constantly improving to meet customer demand."],
-    "plan": ["We offer a variety of plans to suit your needs. What type of plan are you interested in?", "Our plans are designed to offer flexibility and affordability.", "Our plans come with many features to meet your internet needs."],
-    "pricing": ["Our pricing varies depending on the plan you choose. Please visit our website or call us for more information.", "Our pricing is competitive with other ISPs in the area.", "Our pricing is transparent and straightforward."],
-    "installation": ["We provide free installation services to our customers.", "Our installation process is simple and easy.", "Our technicians will ensure that your installation is done correctly."],
-    "service": ["We offer excellent customer service and technical support 24/7.", "Our customer service team is always here to help you with any questions or concerns.", "We take pride in offering the best customer service in the industry."],
-    "contact": ["You can contact us by phone, email, or through our website.", "Our contact information is listed on our website.", "We are always happy to hear from our customers."]
+    "greeting": ['Hello ◉⁠‿⁠◉', 'hello', 'hi', 'Hello. My name is Aura. How can i help you?', 'Whats up', 'Hello ◉⁠‿⁠◉',]
+    "farewell" : ["bye", "goodbye", "see you", "see ya", "Good bye", "Hope i get to hear from you later"]
+    "internet": ["We provide high-speed internet services to our customers.",
+                 "Our internet services are reliable and fast.",
+                 "Our internet services are optimized for high bandwidth usage.",
+                 "At our company, we're committed to delivering speedy and reliable internet services to our customers.",
+                 "Say goodbye to buffering and slow connections with our lightning-fast high-speed internet services, designed to keep you connected and productive.",
+                 "Get the fastest internet around with our high-speed internet services, designed to meet the needs of even the most demanding users.",
+                 "Experience lightning-fast internet with our high-speed internet services."],
+    "speed": ["Our internet speed varies from 3mbps to 10mbps depending on the plan you choose. What speed are you looking for?",
+              "We offer different speed tiers to meet your needs.",
+              "Our internet speed is constantly improving to meet customer demand.",
+              "We offer internet plans with speeds ranging from 3mbps to 10mbps. Which speed works best for you?",
+              "Depending on the plan you choose, our internet speeds can range from 3mbps to 10mbps. What's your preference?",
+              "At our company, we provide internet speeds tailored to your needs. Our plans range from 3mbps to 10mbps. What speed works best for you?",
+              "Looking for a specific internet speed? Our plans range from 3mbps to 10mbps, so you can choose the speed that's right for you.",
+              "Our internet speed options vary depending on the plan you select. Would you prefer a speed of 3mbps, 5mbps, or 10mbps?"],
+    "plan": ["We offer a variety of plans to suit your needs. What type of plan are you interested in?", 
+             "Our plans are designed to offer flexibility and affordability.",
+             "Our plans come with many features to meet your internet needs."],
+    "pricing": ["Our pricing varies depending on the plan you choose. We have 3 Mbps for 1500, 5 Mbps for 2000 and 10 Mbps for 3000.",
+                "Our pricing is competitive with other ISPs in the area.",
+                "Our pricing is transparent and straightforward.",
+                "We offer multiple plans with different speeds and prices, including 3 Mbps for 1500, 5 Mbps for 2000, and 10 Mbps for 3000.",
+                "Our pricing is flexible and varies depending on the internet plan you choose. We offer different plans with varying speeds and prices, including 3 Mbps for 1500, 5 Mbps for 2000, and 10 Mbps for 3000.",
+                "We understand that our customers have different internet needs, which is why we offer multiple plans with different speeds and prices. Our plans include 3 Mbps for 1500, 5 Mbps for 2000, and 10 Mbps for 3000, so you can choose the plan that works best for you."],
+    "installation": ["We offer free installation for PALYJOTE PALACE and nearby buildings. For others, installation is just 2500.",
+                     "Sign up now to get free installation services for Palyjote Palace and nearby buildings. Other buildings can be installed for just 2500.",
+                     "Free install for Palyjote & nearby ones. Others: 2500.",
+                     "No charge for install at palyjote Palace & surrounding bldgs.",
+                     "Get free install for Palyjote palace & nearby. Charge for others.",
+                     "Enjoy free installation services for Palyjote Palace and adjacent buildings with us. For other buildings, installation costs just 2500.",
+                     "Get free installation services for Palyjote Palace and surrounding buildings with our service. Other buildings can be installed for just 2500.",
+                     "We'll install for free at Palyjote Palace and surrounding buildings. Installation at other buildings only costs 2500."],
+    "service": ["We offer excellent customer service and technical support 24/7.",
+                "Our customer service team is always here to help you with any questions or concerns.",
+                "Questions or concerns? Our customer service team is just a call or click away!",
+                "Don't hesitate to reach out! Our team is always ready to help you with any questions or concerns.",
+                "You're never alone. Our customer service team is here to help you whenever you need it."],
+    "contact": ["You can call, text or whatsapp John on 0702374411.",
+                "For any information, feel free to call or message us on 0702374411.",
+                "We are always happy to hear from our customers. Call or sms us on 0702374411.",
+                "For calls or sms, feel free to use our number 0702374411.",
+                "Have a question or concern? We're here to help! Give us a call at 0702374411 and one of our friendly representatives will be happy to assist you.",
+                "We're always here to help! If you have any questions, please don't hesitate to give us a call at 0702374411.",
+                "At Wired Networking, we value our customers and want to make sure you have the support you need. Please feel free to give us a call anytime at 0702374411.",
+                "Need assistance? Our friendly support team is just a phone call away! You can reach us at 0702374411."]
 }
 
 # Define a list of response templates for combinations of keywords
@@ -46,7 +93,7 @@ def interpret_input(input_str):
     keyword_list = []
 
     # Loop through the keywords and check if they appear in the input string
-    for keyword in keyword_dict.keys():
+    for keyword in keyword_dict.values():
         if keyword in input_str:
             # If a keyword is found, add it to the list
             keyword_list.append(keyword)
