@@ -4,16 +4,15 @@ import random
 keyword_dict = {
     "greeting": ["hello", "hi", "hey", "good morning", "good afternoon", "good evening"],
     "farewell": ["bye", "goodbye", "see you", "see ya"],
-    "plan": ["plan", "package", "service", "offer", "option"],
+    "thank": ["thanks", "thank you", "ok", "asante", "sawa"],
     "internet": ["internet", "broadband", "connectivity"],
-    "speed": ["speed", "fast", "slow"],
-    "price": ["price", "cost", "bill", "charge", "fee"],
-    "location": ["location", "area", "address"],
-    "support": ["support", "help", "assistance"],
-    "outage": ["outage", "disruption", "downtime", "not working"],
-    "account": ["account", "login", "username", "password"],
-    "email": ["email", "mailbox", "inbox", "spam"],
-    "payment": ["payment", "pay", "credit card", "debit card", "bank transfer"],
+    "speed": ["speed", "fast", "slow", "3 mbps", "3mbps", "5 mbps", "5mbps", "mbps ngapi", "mbps gani"],
+    "pricing": ["price", "cost", "bill", "charge", "fee", "pesa ngapi", "how much", "pricing "],
+    "location": ["location", "area", "wapi"],
+    'restricted' : ['gatec', 'gate c', 'gate b', 'gateb', 'gateb', 'juja square', 'conte', 'containers']
+    "contact" : ["support", "help", "assistance", 'human', 'chukua simu', 'hauchukui simu', 'haushiki simu'],
+    "outage": ["outage", "disruption", "downtime", "not working", 'hakuna net'],
+    "payment": ["mpesa", "m-pesa", "unachukua cash"],
     "installation": ["installation", "setup", "activate", "register"],
     "modem": ["modem", "router", "gateway", "access point"]
 }
@@ -22,6 +21,12 @@ keyword_dict = {
 responses_dict = {
     "greeting": ['Hello ◉⁠‿⁠◉', 'hello', 'hi', 'Hello. My name is Aura. How can i help you?', 'Whats up', 'Hello ◉⁠‿⁠◉',]
     "farewell" : ["bye", "goodbye", "see you", "see ya", "Good bye", "Hope i get to hear from you later"]
+    "thank" : ['You are welcome', 'Welcome','Ok. anything else?'],
+    'location' : ['Behind senate hotel', 'Currently, we are providing buildings behind senate hotel']
+    'restricted' : ['we are not currently providing net to that area',
+                    'Currently, we are providing buildings behind senate hotel']
+    "outage" : ['We work to make sure that we provide maximum uptime to our users',
+                'In case of any issue, our technical team is always ready to fix it.']
     "internet": ["We provide high-speed internet services to our customers.",
                  "Our internet services are reliable and fast.",
                  "Our internet services are optimized for high bandwidth usage.",
@@ -66,7 +71,8 @@ responses_dict = {
                 "Have a question or concern? We're here to help! Give us a call at 0702374411 and one of our friendly representatives will be happy to assist you.",
                 "We're always here to help! If you have any questions, please don't hesitate to give us a call at 0702374411.",
                 "At Wired Networking, we value our customers and want to make sure you have the support you need. Please feel free to give us a call anytime at 0702374411.",
-                "Need assistance? Our friendly support team is just a phone call away! You can reach us at 0702374411."]
+                "Need assistance? Our friendly support team is just a phone call away! You can reach us at 0702374411.",
+                'https://wa.me/c/254702374411']
 }
 
 # Define a list of response templates for combinations of keywords
