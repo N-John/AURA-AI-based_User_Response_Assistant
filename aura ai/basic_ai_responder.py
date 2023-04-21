@@ -9,24 +9,28 @@ keyword_dict = {
     "speed": ["speed", "fast", "slow", "3 mbps", "3mbps", "5 mbps", "5mbps", "mbps ngapi", "mbps gani"],
     "pricing": ["price", "cost", "bill", "charge", "fee", "pesa ngapi", "how much", "pricing "],
     "location": ["location", "area", "wapi"],
-    'restricted' : ['gatec', 'gate c', 'gate b', 'gateb', 'gateb', 'juja square', 'conte', 'containers']
-    "contact" : ["support", "help", "assistance", 'human', 'chukua simu', 'hauchukui simu', 'haushiki simu'],
+    'restricted' : ['gatec', 'gate c', 'gate b', 'gateb', 'gateb', 'juja square', 'conte', 'containers'],
+    "contact" : ["support", "help", "assistance", "human",
+                 "chukua simu", "hauchukui simu", "haushiki simu"],
     "outage": ["outage", "disruption", "downtime", "not working", 'hakuna net'],
-    "payment": ["mpesa", "m-pesa", "unachukua cash"],
+    "payment": ["mpesa", "m-pesa", "unachukua cash", 'hauchukui cash'],
     "installation": ["installation", "setup", "activate", "register"],
-    "modem": ["modem", "router", "gateway", "access point"]
+    "modem": ["modem", "router", "gateway", "access point"],
 }
 
 # Define a dictionary of responses for each type of question
 responses_dict = {
-    "greeting": ['Hello ◉⁠‿⁠◉', 'hello', 'hi', 'Hello. My name is Aura. How can i help you?', 'Whats up', 'Hello ◉⁠‿⁠◉',]
-    "farewell" : ["bye", "goodbye", "see you", "see ya", "Good bye", "Hope i get to hear from you later"]
+    'modem' : ['you can get connected through ethernet to a router that accept internet through WAN'],
+    'payment' : ['we accept payment through cash and/or mpesa',
+                 'you can pay through mpesa provided to you'],
+    "greeting": ['Hello ◉⁠‿⁠◉', 'hello', 'hi', 'Hello. My name is Aura. How can i help you?', 'Whats up', 'Hello ◉⁠‿⁠◉',],
+    "farewell" : ["bye", "goodbye", "see you", "see ya", "Good bye", "Hope i get to hear from you later"],
     "thank" : ['You are welcome', 'Welcome','Ok. anything else?'],
-    'location' : ['Behind senate hotel', 'Currently, we are providing buildings behind senate hotel']
+    'location' : ['Behind senate hotel', 'Currently, we are providing buildings behind senate hotel'],
     'restricted' : ['we are not currently providing net to that area',
-                    'Currently, we are providing buildings behind senate hotel']
+                    'Currently, we are providing buildings behind senate hotel'],
     "outage" : ['We work to make sure that we provide maximum uptime to our users',
-                'In case of any issue, our technical team is always ready to fix it.']
+                'In case of any issue, our technical team is always ready to fix it.'],
     "internet": ["We provide high-speed internet services to our customers.",
                  "Our internet services are reliable and fast.",
                  "Our internet services are optimized for high bandwidth usage.",
@@ -85,28 +89,51 @@ template_list = [
 
 # Define a dictionary of responses for each combination of keywords
 combination_dict = {
-    ("internet", "plan"): ["Our internet plans come with a variety of features to meet your needs.", "Our internet plans are designed with affordability and flexibility in mind.", "Our internet plans offer high-speed and reliable service."],
-    ("internet", "pricing"): ["Our pricing varies depending on the plan you choose. Please visit our website or call us for more information.", "Our pricing is transparent and straightforward.", "We offer competitive pricing for our internet plans."],
-    ("internet", "installation"): ["Our installation process is simple and easy.", "Our technicians will ensure that your installation is done correctly.", "We offer free installation services to our customers."],
-    ("service", "contact"): ["You can contact us by phone, email, or through our website for any customer service or technical support needs.", "Our customer service team is always here to help you with any questions or concerns.", "We take pride in offering the best customer service in the industry."]
+    ("internet", "plan"): ["Our internet plans come with a variety of features to meet your needs.",
+                           "Our internet plans are designed with affordability and flexibility in mind.",
+                           "Our internet plans offer high-speed and reliable service."],
+    ("internet", "pricing"): ["Our pricing varies depending on the plan you choose. Please visit our website or call us for more information.",
+                              "Our pricing is transparent and straightforward.",
+                              "We offer competitive pricing for our internet plans."],
+    ("internet", "installation"): ["Our installation process is simple and easy.",
+                                   "Our technicians will ensure that your installation is done correctly.",
+                                   "We offer free installation services to our customers."],
+    ("service", "contact"): ["You can contact us by phone, email, or through our website for any customer service or technical support needs.",
+                             "Our customer service team is always here to help you with any questions or concerns.",
+                             "We take pride in offering the best customer service in the industry."]
 }
 
 def interpret_input(input_str):
+    single_list = []
+    response = ''
+    
+    for values in keyword_dict.values():
+        single_list += values
+        
+        
+    
+    #print(single_list)
+        
     # Convert the input string to lowercase for case-insensitive matching
     input_str = input_str.lower()
+    strr = ''
 
     # Initialize an empty list to store the keywords found in the input string
     keyword_list = []
 
     # Loop through the keywords and check if they appear in the input string
-    for keyword in keyword_dict.values():
+    for keyword in single_list:
+        #strr += keyword
         if keyword in input_str:
             # If a keyword is found, add it to the list
+            for key, values in keyword_dict.items():
+                if input_str in values:
+                    keyword = key
             keyword_list.append(keyword)
 
     # If no keywords are found, return a default response
     if len(keyword_list) == 0:
-        return "Thank you for your interest in our ISP. How may I assist you today?"
+        return "i don't understand"
 
     # Check if the input string contains multiple keywords
     if len(keyword_list) > 1:
@@ -130,7 +157,6 @@ def interpret_input(input_str):
     else:
         # If only one keyword is found, select a response from the corresponding dictionary
         keyword = keyword_list[0]
-        response_list = responses_dict[keyword]
         response = random.choice(response_list)
 
     return response
