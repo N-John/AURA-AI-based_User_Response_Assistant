@@ -1,34 +1,46 @@
 import random
 
+#    _   _   _ ____      _    
+#   / \ | | | |  _ \    / \
+#  / _ \| | | | |_) |  / _ \
+# / ___ \ |_| |  _ <  / ___ \
+#/_/   \_\___/|_| \_\/_/   \_\
+#
+#OWNER : N-John
+#CREATIONN DATE: 21-APRIL-2023
+#GIT : https://github.com/N-John
+#This is a simulation of a basic knowledge based module which 
+#opperates by getting an input string from a user, extracts key words 
+#from it to create a response based on data given.
+
+
 # Define a dictionary of keywords and their corresponding actions
 keyword_dict = {
     "greeting": ["hello", "hi", "hey", "good morning", "good afternoon", "good evening"],
     "farewell": ["bye", "goodbye", "see you", "see ya"],
     "thank": ["thanks", "thank you", "ok", "asante", "sawa"],
     "internet": ["internet", "broadband", "connectivity"],
-    "speed": ["speed", "fast", "slow", "3 mbps", "3mbps", "5 mbps", "5mbps", "mbps ngapi", "mbps gani"],
-    "pricing": ["price", "cost", "bill", "charge", "fee", "pesa ngapi", "how much", "pricing "],
-    "location": ["location", "area", "wapi"],
-    'restricted' : ['gatec', 'gate c', 'gate b', 'gateb', 'gateb', 'juja square', 'conte', 'containers'],
-    "contact" : ["support", "help", "assistance", "human",
-                 "chukua simu", "hauchukui simu", "haushiki simu"],
-    "outage": ["outage", "disruption", "downtime", "not working", 'hakuna net'],
-    "payment": ["mpesa", "m-pesa", "unachukua cash", 'hauchukui cash'],
+    "speed": ["speed", "fast", "slow", "3 mbps", "3 mbps", "5 mbps", "5 mbps"],
+    "pricing": ["price", "cost", "bill", "charge", "fee", "how much", "pricing "],
+    "location": ["location", "area"],
+    "contact" : ["support", "help", "assistance", "human"],
+    "outage": ["outage", "disruption", "downtime", "not working"],
+    "payment": ["mpesa", "m-pesa", "cash", 'bank'],
     "installation": ["installation", "setup", "activate", "register"],
     "modem": ["modem", "router", "gateway", "access point"],
 }
 
 # Define a dictionary of responses for each type of question
 responses_dict = {
-    'modem' : ['you can get connected through ethernet to a router that accept internet through WAN'],
+    'modem' : ['you can get connected through fibre to the home'],
     'payment' : ['we accept payment through cash and/or mpesa',
                  'you can pay through mpesa provided to you'],
-    "greeting": ['Hello ◉⁠‿⁠◉', 'hello', 'hi', 'Hello. My name is Aura. How can i help you?', 'Whats up', 'Hello ◉⁠‿⁠◉',],
+    "greeting": ['Hello ◉⁠‿⁠◉.', 'hello.', 'hi.', 'Hello. My name is Aura.', 'Whats up.',],
     "farewell" : ["bye", "goodbye", "see you", "see ya", "Good bye", "Hope i get to hear from you later"],
     "thank" : ['You are welcome', 'Welcome','Ok. anything else?'],
-    'location' : ['Behind senate hotel', 'Currently, we are providing buildings behind senate hotel'],
+    'location' : ['Everywhere', 'Currently, we are providing internet all around the country'],
     'restricted' : ['we are not currently providing net to that area',
-                    'Currently, we are providing buildings behind senate hotel'],
+                    'Currently, that area is not fibre ready'],
     "outage" : ['We work to make sure that we provide maximum uptime to our users',
                 'In case of any issue, our technical team is always ready to fix it.'],
     "internet": ["We provide high-speed internet services to our customers.",
@@ -55,28 +67,28 @@ responses_dict = {
                 "We offer multiple plans with different speeds and prices, including 3 Mbps for 1500, 5 Mbps for 2000, and 10 Mbps for 3000.",
                 "Our pricing is flexible and varies depending on the internet plan you choose. We offer different plans with varying speeds and prices, including 3 Mbps for 1500, 5 Mbps for 2000, and 10 Mbps for 3000.",
                 "We understand that our customers have different internet needs, which is why we offer multiple plans with different speeds and prices. Our plans include 3 Mbps for 1500, 5 Mbps for 2000, and 10 Mbps for 3000, so you can choose the plan that works best for you."],
-    "installation": ["We offer free installation for PALYJOTE PALACE and nearby buildings. For others, installation is just 2500.",
-                     "Sign up now to get free installation services for Palyjote Palace and nearby buildings. Other buildings can be installed for just 2500.",
-                     "Free install for Palyjote & nearby ones. Others: 2500.",
-                     "No charge for install at palyjote Palace & surrounding bldgs.",
-                     "Get free install for Palyjote palace & nearby. Charge for others.",
-                     "Enjoy free installation services for Palyjote Palace and adjacent buildings with us. For other buildings, installation costs just 2500.",
-                     "Get free installation services for Palyjote Palace and surrounding buildings with our service. Other buildings can be installed for just 2500.",
-                     "We'll install for free at Palyjote Palace and surrounding buildings. Installation at other buildings only costs 2500."],
+    "installation": ["We offer free installation at select places. For others, installation is just 2500.",
+                     "Sign up now to get free installation in select places. Other locations can be installed for just 2500.",
+                     "Free install at select places. Others: 2500.",
+                     "No charge for install at select places.",
+                     "Get free install at select places. Charge for others.",
+                     "Enjoy free installation services at select places with us. For other locations, installation costs just 2500.",
+                     "Get free installation services at select places with our service. Other locations can be installed for just 2500.",
+                     "We'll install for free at select places. Installation at other locations only costs 2500."],
     "service": ["We offer excellent customer service and technical support 24/7.",
                 "Our customer service team is always here to help you with any questions or concerns.",
                 "Questions or concerns? Our customer service team is just a call or click away!",
                 "Don't hesitate to reach out! Our team is always ready to help you with any questions or concerns.",
                 "You're never alone. Our customer service team is here to help you whenever you need it."],
-    "contact": ["You can call, text or whatsapp John on 0702374411.",
-                "For any information, feel free to call or message us on 0702374411.",
-                "We are always happy to hear from our customers. Call or sms us on 0702374411.",
-                "For calls or sms, feel free to use our number 0702374411.",
-                "Have a question or concern? We're here to help! Give us a call at 0702374411 and one of our friendly representatives will be happy to assist you.",
-                "We're always here to help! If you have any questions, please don't hesitate to give us a call at 0702374411.",
-                "At Wired Networking, we value our customers and want to make sure you have the support you need. Please feel free to give us a call anytime at 0702374411.",
-                "Need assistance? Our friendly support team is just a phone call away! You can reach us at 0702374411.",
-                'https://wa.me/c/254702374411']
+    "contact": ["You can call, text or whatsapp John on 0712345678.",
+                "For any information, feel free to call or message us on 0712345678.",
+                "We are always happy to hear from our customers. Call or sms us on 0712345678.",
+                "For calls or sms, feel free to use our number 0712345678.",
+                "Have a question or concern? We're here to help! Give us a call at 0712345678 and one of our friendly representatives will be happy to assist you.",
+                "We're always here to help! If you have any questions, please don't hesitate to give us a call at 0712345678.",
+                "At [isp] Networking, we value our customers and want to make sure you have the support you need. Please feel free to give us a call anytime at 0712345678.",
+                "Need assistance? Our friendly support team is just a phone call away! You can reach us at 0712345678.",
+                'you cann go to our website at https://github.com/N-John/']
 }
 
 # Define a list of response templates for combinations of keywords
@@ -104,32 +116,21 @@ combination_dict = {
 }
 
 def interpret_input(input_str):
-    single_list = []
+    single_list = []#lista of all keywords supported
     response = ''
     
     for values in keyword_dict.values():
         single_list += values
-        
-        
-    
-    #print(single_list)
-        
-    # Convert the input string to lowercase for case-insensitive matching
     input_str = input_str.lower()
-    strr = ''
-
-    # Initialize an empty list to store the keywords found in the input string
     keyword_list = []
-
-    # Loop through the keywords and check if they appear in the input string
     for keyword in single_list:
         #strr += keyword
         if keyword in input_str:
             # If a keyword is found, add it to the list
             for key, values in keyword_dict.items():
-                if input_str in values:
+                if keyword in values:
                     keyword = key
-            keyword_list.append(keyword)
+                    keyword_list.append(keyword)
 
     # If no keywords are found, return a default response
     if len(keyword_list) == 0:
@@ -150,15 +151,15 @@ def interpret_input(input_str):
             response = random.choice(response_list)
         else:
             # If no template is found, select a random response from the list of all keyword responses
-            response_list = []
-            for keyword in keyword_list:
-                response_list += responses_dict[keyword]
-            response = random.choice(response_list)
+            
+            for keyword_check in keyword_list:
+                response += random.choice(responses_dict[keyword_check])
     else:
         # If only one keyword is found, select a response from the corresponding dictionary
-        keyword = keyword_list[0]
-        response = random.choice(response_list)
+        response = random.choice(responses_dict[keyword_list[0]])
 
+        if keyword_list[0] == 'greeting':
+            response +=' How can i help you?'
     return response
 
 print('hello')
