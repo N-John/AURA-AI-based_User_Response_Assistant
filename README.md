@@ -26,8 +26,8 @@ calls schedule multiple gsm actions. It should be noted that this is still an on
 </section>
 <paragraph>
     minimum hardware Requred:
-    raspberry pi pico
-    sim800l gsm
-    sim card
+    - Raspberry pi pico
+    - Sim800l gsm
+    - Sim card
     
 </paragraph>
