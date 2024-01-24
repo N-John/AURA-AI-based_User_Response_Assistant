@@ -24,3 +24,10 @@ it supports a modifiable database which can be set appropriately for desired env
 AURA can also perform other multiple functions such as: read, write, store and delete sms, make and receive
 calls schedule multiple gsm actions. It should be noted that this is still an ongoing project.
 </section>
+<paragraph>
+    minimum hardware Requred:
+    raspberry pi pico
+    sim800l gsm
+    sim card
+    
+</paragraph>
