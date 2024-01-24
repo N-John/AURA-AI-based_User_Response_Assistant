@@ -1,17 +1,19 @@
 <section>
-    _   _   _ ____      _    <br>
-   / \ | | | |  _ \    / \<br>
-  / _ \| | | | |_) |  / _ \<br>
- / ___ \ |_| |  _ <  / ___ \<br>
-/_/   \_\___/|_| \_\/_/   \_\<br>
+<pre>
+    _   _   _ ____      _      
+   / \ | | | |  _ \    / \     
+  / _ \| | | | |_) |  / _ \    
+ / ___ \ |_| |  _ <  / ___ \   
+/_/   \_\___/|_| \_\/_/   \_\  
+</pre>
 </section>
      
 <br>
 <section>
-OWNER : N-John
-CREATIONN DATE: 21-APRIL-2023
-last modified : 24-JAN-2024
-GIT : https://github.com/N-John
+OWNER : N-John<br>
+CREATIONN DATE: 21-APRIL-2023<br>
+last modified : 24-JAN-2024<br>
+GIT : https://github.com/N-John<br>
 </section>
 <br>
 <section>
