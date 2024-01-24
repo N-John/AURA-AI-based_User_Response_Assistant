@@ -11,9 +11,9 @@
 <br>
 <section>
 OWNER : N-John<br>
-CREATIONN DATE: 21-APRIL-2023<br>
+CREATION DATE: 21-APRIL-2023<br>
 last modified : 24-JAN-2024<br>
-GIT : https://github.com/N-John<br>
+GIT : [https://github.com/N-John](https://github.com/N-John/AURA-AI-based_User_Response_Assistant.git)<br>
 </section>
 <br>
 <section>
