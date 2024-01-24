@@ -31,3 +31,5 @@ calls schedule multiple gsm actions. It should be noted that this is still an on
     - Sim card
     
 </paragraph>
+
+![AURA HARDWARE BUILD](https://github.com/N-John/AURA-AI-based_User_Response_Assistant/blob/main/AURA.jpg)
